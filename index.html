@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PoultryMe — Healthy Chickens. Better Tomorrow.</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar"><div class="container nav-inner">
+  <div class="logo">🐔 PoultryMe</div>
+  <ul class="nav-links"><li><a href="#home">Home</a></li><li><a href="#categories">Categories</a></li><li><a href="#shop">Shop</a></li><li><a href="#about">About Us</a></li><li><a href="#contact">Contact</a></li></ul>
+  <div class="search-bar"><input id="search" type="text" placeholder="Search chickens..."><button>Search</button></div>
+  <button id="cart-btn" class="cart-btn">🛒 Cart <span id="cart-count" class="cart-count">0</span></button>
+</nav></div>
+
+<section id="home" class="hero"><div class="container hero-content">
+  <h1>Healthy Chickens for a Brighter Future</h1>
+  <p>At PoultryMe, we provide high-quality, healthy chickens for your farm or backyard. Choose from our carefully raised breeds, perfect for egg production, meat, or breeding.</p>
+  <button id="shop-now" class="btn btn-primary">Shop Now</button>
+  <button id="learn-more" class="btn btn-outline">Learn More</button>
+</div></section>
+
+<section id="categories" class="section"><div class="container">
+  <h2 class="section-title">Chicken Categories by Age</h2>
+  <p class="section-sub">Pick an age group to filter products.</p>
+  <div class="categories">
+    <div class="cat-card"><img src="images/pexels.jpg" alt="4 month old chicken"><div class="cat-body"><h3>4 Months Old</h3><p>Young and healthy chickens, great for growing your flock.</p><button class="btn btn-primary cat-btn" data-cat="4">Shop Now</button></div></div>
+    <div class="cat-card"><img src="images/pixabay.jpg" alt="5 month old chicken"><div class="cat-body"><h3>5 Months Old</h3><p>Well-developed chickens ready for your farm.</p><button class="btn btn-primary cat-btn" data-cat="5">Shop Now</button></div></div>
+    <div class="cat-card"><img src="images/unsplash.jpg" alt="6+ month old chicken"><div class="cat-body"><h3>6 Months and Older</h3><p>Mature chickens suitable for breeding or egg laying.</p><button class="btn btn-primary cat-btn" data-cat="6+">Shop Now</button></div></div>
+  </div>
+  <div style="margin-top:16px"><button class="btn btn-outline" style="color:var(--green);border-color:var(--green)" data-cat="all" onclick="document.querySelector('[data-cat=all]').click()">All Chickens</button></div>
+</div></section>
+
+<section id="shop" class="section"><div class="container">
+  <h2 class="section-title">Shop Chickens</h2>
+  <div class="toolbar">
+    <select id="sort"><option value="default">Sort by</option><option value="low">Price: Low to High</option><option value="high">Price: High to Low</option></select>
+    <span id="product-count">0 products</span>
+    <button class="btn btn-outline" style="color:var(--green);border-color:var(--green)" data-cat="all">All Chickens</button>
+  </div>
+  <div id="product-grid" class="product-grid"></div>
+</div></section>
+
+<section id="about" class="section"><div class="container">
+  <h2 class="section-title">About Us</h2>
+  <p>PoultryMe helps customers find healthy chickens for backyard farming and poultry businesses.</p>
+  <div class="features" style="margin-top:24px">
+    <div class="feature-card"><div class="icon">Chicken</div><h3>Healthy Chickens</h3><p>Raised with care for strong, vibrant flocks.</p></div>
+    <div class="feature-card"><div class="icon">Breed</div><h3>Quality Breeds</h3><p>Curated breeds for eggs, meat, and breeding.</p></div>
+    <div class="feature-card"><div class="icon">Service</div><h3>Customer-Focused Service</h3><p>Friendly support for every poultry need.</p></div>
+  </div>
+</div></section>
+
+<section id="contact" class="section"><div class="container">
+  <h2 class="section-title">Contact</h2>
+  <form id="contact-form" class="contact-form">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <textarea name="message" placeholder="Message" required rows="4"></textarea>
+    <button class="btn btn-primary" type="submit">Send</button>
+    <p id="contact-msg" style="color:var(--green);margin-top:8px"></p>
+  </form>
+  <p>Phone: +63 900 000 0000 | Email: hello@poultryme.com | Location: Philippines</p>
+</div></section>
+
+<footer><div class="container footer-grid">
+  <div><div class="logo">🐔 PoultryMe</div><p>Healthy Chickens. Better Tomorrow.</p></div>
+  <div><h4>Quick Links</h4><a href="#home">Home</a><br><a href="#shop">Shop</a><br><a href="admin.html">Admin</a></div>
+  <div><h4>Contact</h4><p>hello@poultryme.com<br>+63 900 000 0000</p></div>
+</div><div class="copyright">© 2026 PoultryMe. All rights reserved.</div></footer>
+
+<div id="modal" class="modal-overlay"><div class="modal">
+  <button id="modal-close" class="modal-close">✕</button>
+  <img id="modal-img" src="" alt="">
+  <h2 id="modal-name"></h2>
+  <p><strong>Breed:</strong> <span id="modal-breed"></span></p>
+  <p><strong>Age:</strong> <span id="modal-age"></span></p>
+  <p><strong>Price:</strong> <span id="modal-price"></span></p>
+  <p><strong>Availability:</strong> <span id="modal-avail"></span></p>
+  <p><strong>Purpose:</strong> <span id="modal-purpose"></span></p>
+  <p id="modal-desc"></p>
+</div></div>
+
+<div id="cart-panel" class="cart-panel">
+  <div class="cart-header"><h3>Cart</h3><button id="cart-close">✕</button></div>
+  <div id="cart-items" class="cart-items"></div>
+  <div class="cart-footer"><strong>Total: <span id="cart-total">₱0</span></strong></div>
+</div>
+
+<script src="common.js"></script>
+<script src="script.js"></script>
+</body></html>
